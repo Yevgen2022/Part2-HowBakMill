@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<!-- <pre>
+    Гра «Як стати мільйонером».
+    Подумайте, як можна реалізувати подібний сценарій з використанням масивів та об'єктів.
+    Пам'ятайте, що для кожного запитання потрібно прописати: запитання, 4 варіанти відповіді,
+    правильну відповідь (яку порівнюватимемо з тим, що ввів користувач), сума, яку виграв користувач.
+    Визначте щонайменше 5 питань. Запитання з варіантами відповідей ви можете вигадати самостійно,
+    а можете скористатися пошуком.
+</pre> -->
+
+<body>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam, consequatur!</p>
+
+
+    <script>
+        // Object of price question
+        let priceOfAnswer = {
+            1: 500,
+            2: 1000,
+            3: 2000,
+            4: 3000,
+            5: 5000,
+            6: 8000,
+            7: 10000,
+            8: 13000,
+            9: 15000,
+            10: 25000,
+            11: 50000,
+            12: 100000,
+            13: 250000,
+            14: 500000,
+            15: 1000000
+        }
+
+
+        // Objects of All question
+        let listOfQuestions = [
+            {
+                id: 0
+            },
+            {
+                id: 1,
+                question: "Хто відкрив Америку",
+                variant: {
+                    "a": "Форест Гамп",
+                    "б": "Архімед",
+                    "в": "Колумб",
+                    "г": "Цезар",
+                },
+                rightAns: "в"
+            },
+
+            {
+                id: 2,
+                question: "Яка столиця України?",
+                variant: {
+                    "а": "Київ",
+                    "б": "Львів",
+                    "в": "Харків",
+                    "г": "Одеса"
+                },
+                rightAns: "а"
+            },
+
+            {
+                id: 3,
+                question: "Яка найбільша планета в Сонячній системі?",
+                variant: {
+                    "а": "Марс",
+                    "б": "Венера",
+                    "в": "Юпітер",
+                    "г": "Меркурій"
+                },
+                rightAns: "в"
+            },
+
+            {
+                id: 4,
+                question: "Якій країні належить піраміда Хеопса?",
+                variant: {
+                    "a": "Італія",
+                    "б": "Єгипет",
+                    "в": "Греція",
+                    "г": "Франція"
+                },
+                rightAns: "б"
+            },
+
+            {
+                id: 5,
+                question: "Як називається маленький кусень музики, який використовується для поклику?",
+                variant: {
+                    "a": "Симфонія",
+                    "б": "Ритм",
+                    "в": "Мелодія",
+                    "г": "Акорд"
+                },
+                rightAns: "в"
+            },
+
+            {
+                id: 6,
+                question: "Скільки планет в Сонячній системі?",
+                variant: {
+                    "a": "7",
+                    "б": "9",
+                    "в": "8",
+                    "г": "6"
+                },
+                rightAns: "в"
+            },
+
+            {
+                id: 7,
+                question: "Яка країна є батьківщиною піци?",
+                variant: {
+                    "а": "Італія",
+                    "б": "Франція",
+                    "в": "Іспанія",
+                    "г": "Греція"
+                },
+                rightAns: "а"
+            },
+
+            {
+                id: 8,
+                question: "Яка найвища гора в світі?",
+                variant: {
+                    "a": "Маккінлі",
+                    "б": "Кіліманджаро",
+                    "в": "Еверест",
+                    "г": "К2"
+                },
+                rightAns: "в"
+            },
+
+            {
+                id: 9,
+                question: "Як звуть головного героя роману 'Преступлення і кара'?",
+                variant: {
+                    "а": "Родіон Раскольников",
+                    "б": "Іван Ільич",
+                    "в": "Остап Бендер",
+                    "г": "Вінні Пух"
+                },
+                rightAns: "а"
+            },
+
+            {
+                id: 10,
+                question: "Як називається столиця Франції?",
+                variant: {
+                    "a": "Лондон",
+                    "б": "Мадрид",
+                    "в": "Рим",
+                    "г": "Париж"
+                },
+                rightAns: "г"
+            },
+
+            {
+                id: 11,
+                question: "Яка кількість рук у людини?",
+                variant: {
+                    "а": "2",
+                    "б": "4",
+                    "в": "6",
+                    "г": "8"
+                },
+                rightAns: "а"
+            },
+            {
+                id: 12,
+                question: "Що таке піраміда Хеопса?",
+                variant: {
+                    "а": "Античний маяк",
+                    "б": "Будівля для погребіння фараонів",
+                    "в": "Великий землетрус",
+                    "г": "Світлова куля",
+                },
+                rightAns: "б",
+            },
+            {
+                id: 13,
+                question: "Що таке Тадж-Махал?",
+                variant: {
+                    "а": "Палац у Києві",
+                    "б": "Мавзолей в Індії",
+                    "в": "Меморіальний комплекс у Вашингтоні",
+                    "г": "Острів у Тихому океані",
+                },
+                rightAns: "б",
+            },
+            {
+                id: 14,
+                question: "Що таке Велика китайська стіна?",
+                variant: {
+                    "а": "Мур для захисту від повеней",
+                    "б": "Система оборони від нападу ворогів",
+                    "в": "Дорога для торгівлі",
+                    "г": "Лімітрована територія для полювання",
+                },
+                rightAns: "б",
+            },
+            {
+                id: 15,
+                question: "Що таке Місце Пам'яті?",
+                variant: {
+                    "а": "Глобальний меморіальний комплекс",
+                    "б": "Парк розваг",
+                    "в": "Музей історії",
+                    "г": "Аквапарк",
+                },
+                rightAns: "а",
+            },
+            {
+                id: 16,
+                question: "Що таке Ейфелева вежа?",
+                variant: {
+                    "а": "Споруда для досліджень космосу",
+                    "б": "Телевізійна вежа",
+                    "в": "Фортеця",
+                    "г": "Меморіальний пам'ятник",
+                },
+                rightAns: "б",
+            },
+            {
+                id: 17,
+                question: "Що таке Великий каньйон?",
+                variant: {
+                    "а": "Ліс",
+                    "б": "Гірський хребет",
+                    "в": "Річка",
+                    "г": "Глибока річкова долина",
+                },
+                rightAns: "г",
+            },
+            {
+                id: 18,
+                question: "Що таке Статуя Свободи?",
+                variant: {
+                    "а": "Пам'ятник відомому діячу",
+                    "б": "Символ свободи",
+                    "в": "Музей",
+                    "г": "Тематичний парк",
+                },
+                rightAns: "б",
+            },
+            {
+                id: 19,
+                question: "Що таке Пізанська вежа?",
+                variant: {
+                    "а": "Кам'яна вежа на березі річки",
+                    "б": "Споруда для вишивання мережі",
+                    "в": "Вежа дзвіниця",
+                    "г": "Будівля для магазинів",
+                },
+                rightAns: "в",
+            },
+            {
+                id: 20,
+                question: "Що таке Кріст Редемптор?",
+                variant: {
+                    "а": "Аквапарк",
+                    "б": "Будівля для проведення концертів",
+                    "в": "Пантеон для культових обрядів",
+                    "г": "Меморіальний пам'ятник",
+                },
+                rightAns: "г",
+            },
+        ];
+
+
+        let decisionUser = confirm("Чи бажаєте Ви зіграти у гру - Як стати міліонером.?");
+        let countOfQuestion = 1;
+
+        while (decisionUser) {
+            let right = listOfQuestions[countOfQuestion].rightAns;
+            let answerUser = createPrompt(listOfQuestions[countOfQuestion]);
+
+            if (answerUser === right) {
+                decisionUser = createConfirm(countOfQuestion);
+                if (decisionUser) {
+                    countOfQuestion++;
+                } else {
+                    // alert("Ви вирішили закінчити гру!");
+                    createAlert(countOfQuestion);
+                }
+            } else {
+                wrongAnswer(countOfQuestion);
+                // alert("Дуже шкода,Ви надали неправильну відповідь.Можливо наступного разу Вам пощастить.");
+                break;
+            }
+        }
+
+
+        function createPrompt(obj) {
+            let question = obj.question;
+            let options = obj.variant;
+            let message = question + '\n';
+
+            for (let key in options) {
+                message += key + ')' + ' ' + options[key] + '\n';
+            }
+            return prompt(message);
+        }
+
+        function createConfirm(numberOfQues) {
+            let key = priceOfAnswer[numberOfQues];
+            let massage = "Відповідь правильна. Ви виграли " + key + "$.Ви бажаєте продовжити гру?"
+            return confirm(massage);
+        };
+
+        function createAlert(countOfQuestion) {
+            if (countOfQuestion < 5) {
+                return alert(`Ваш виграш становить 0 Ви залишаєте гру.`);
+            } else if (countOfQuestion >= 5 && countOfQuestion < 10) {
+                return alert(`Ваш виграш становить ${priceOfAnswer[5]}$ Ви залишаєте гру.`);
+            } else if (countOfQuestion >= 10 && countOfQuestion < 15) {
+                return alert(`Ваш виграш становить ${priceOfAnswer[10]}$ Ви залишаєте гру.`);
+            } else if (countOfQuestion === 15) {
+                return alert(`Ви виграли.Ваш виграш становить ${priceOfAnswer[15]}$.`);
+            }
+        }
+
+        function wrongAnswer(countOfQuestion) {
+            if (countOfQuestion < 5) {
+                return alert(`На жаль Ваша відповідь не правильна.Ваш виграш становить 0.Ви залишаєте гру.`);
+            } else if (countOfQuestion >= 5 && countOfQuestion < 10) {
+                return alert(`На жаль Ваша відповідь не правильна.Ваш виграш становить ${priceOfAnswer[5]}$.Ви залишаєте гру.`);
+            } else if (countOfQuestion >= 10 && countOfQuestion < 15) {
+                return alert(`На жаль Ваша відповідь не правильна.Ваш виграш становить ${priceOfAnswer[10]}$.Ви залишаєте гру.`);
+                // } else if (countOfQuestion === 15) {
+                //     return alert(`Ви виграли.Ваш виграш становить ${priceOfAnswer[15]}$.`);
+            }
+        }
+
+    </script>
+</body>
+
+</html>
